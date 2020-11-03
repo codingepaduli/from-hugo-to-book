@@ -1,0 +1,5 @@
+---
+title: Appunti di Laboratorio
+author: ME
+rights: (c) ME
+...
