@@ -22,12 +22,14 @@ code, pre {
 
     font-family: monospace;
 }
+
 code {
     margin: 0 2px;
     padding: 0 5px;
 
     border: 1px solid #EAEAEA;
 }
+
 pre {
     overflow: auto;
 
@@ -36,4 +38,50 @@ pre {
     border: 1px solid #CCCCCC;
 
     line-height: 1.25em;
+}
+
+img {
+    /* occupazione massima: 80%/40% della pagina visibile. */
+    max-width: 80vw;
+    max-height: 40vh;
+    /* mantiene il rapporto larghezza/altezza dell'immagine
+    quando questa viene scalata */
+
+    object-fit: contain;
+}
+
+/* Evita le interruzioni di pagina all'interno di un titolo, immagine, tabella, ecc... */ 
+
+h1, h2, h3, h4, h5, h6 {
+    page-break-after:avoid;
+    page-break-inside:avoid
+}
+ 
+img {
+    page-break-inside:avoid;
+    page-break-after:avoid;
+}
+ 
+blockquote, table, pre, code {
+    page-break-inside:avoid
+}
+ 
+ul, ol, dl {
+    page-break-before:avoid
+}
+
+/* Imposta i margini di una pagina... */
+
+body, article {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+@page :left {
+    margin: 0.5cm 0.5cm 0.5cm 0.5cm;
+}
+ 
+@page :right {
+    margin: 2cm 2cm 2cm 3cm;
 }
