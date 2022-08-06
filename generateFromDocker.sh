@@ -20,6 +20,8 @@ METADATA="metadata.xml"
 STYLESHEET="stylesheet.css"
 
 FIRST_PAGE="$CURRENT_DIR/cover.md"
+TITLE="$CURRENT_DIR/title.md"
+
 
 IMAGE_PREPROCESS_FILTER_EBOOK="replace_image_source.lua"
 PAGEBREAK_PREPROCESS_FILTER="pagebreak.lua"
@@ -106,8 +108,6 @@ then
   # mkdir "$BUILD"
 fi
 
-cat $CHAPTERS | grep -e '^#' > epub_index.md
-
 cd $CONTENT_DIR
 
 echo "Generating pdf"
@@ -116,10 +116,9 @@ PANDOC_COMMAND_PDF="  $PANDOC_COMMAND --output=$BUILD$BOOKNAME.pdf $FIRST_PAGE $
 $PANDOC_COMMAND_PDF
 
 echo "Generating ebook"
-PANDOC_COMMAND_EBOOK="$PANDOC_COMMAND --output=$BUILD$BOOKNAME.epub $CURRENT_DIR/ebook_title.txt $CHAPTERS --epub-chapter-level=1 --epub-metadata=$CURRENT_DIR/epub_metadata.xml --epub-cover-image=$CURRENT_DIR/cover_ebook.jpg --css=$CURRENT_DIR/$STYLESHEET --listings" #
+PANDOC_COMMAND_EBOOK="$PANDOC_COMMAND --output=$BUILD$BOOKNAME.epub $CURRENT_DIR/ebook_title.txt $CHAPTERS $TITLE --epub-chapter-level=1 --epub-metadata=$CURRENT_DIR/epub_metadata.xml --epub-cover-image=$CURRENT_DIR/cover_ebook.jpg --css=$CURRENT_DIR/$STYLESHEET --listings" #
 
 $PANDOC_COMMAND_EBOOK
-
 
 
 #@REM OPTION 1 for PDF: Use HTML5 rendering engine (wkhtmltopdf)
