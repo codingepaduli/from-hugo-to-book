@@ -28,16 +28,22 @@ code {
     padding: 0 5px;
 
     border: 1px solid #EAEAEA;
+
+    /* Gestisce il ritorno a capo all'interno del codice da evidenziare */
+    white-space: pre-wrap !important;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 pre {
-    overflow: auto;
-
     padding: 6px 10px;
-
+    
     border: 1px solid #CCCCCC;
-
+    
     line-height: 1.25em;
+    
+    /* Elimina la barra di scorrimento dalla sezione di codice da evidenziare */
+    overflow-x: hidden !important;
 }
 
 img {
