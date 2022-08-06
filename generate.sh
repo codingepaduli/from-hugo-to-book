@@ -71,7 +71,6 @@ CHAPTERS="
         $CONTENT_DIR/content/coding/web/javascript/primi_script.md
         $CONTENT_DIR/content/coding/web/javascript/Variabili.md
         $CONTENT_DIR/content/coding/web/p5js/intro.md
-        $CONTENT_DIR/content/coding/web/p5js/basics.md
         $CONTENT_DIR/content/coding/web/p5js/colorsAndStyles.md
         $CONTENT_DIR/content/coding/web/p5js/interactivity.md
         "
@@ -95,8 +94,6 @@ then
   # mkdir "$BUILD"
 fi
 
-cat $CHAPTERS | grep -e '^#' > epub_index.md
-
 cd $CONTENT_DIR
 
 echo "Generating ebook"
@@ -108,6 +105,7 @@ echo "Generating pdf"
 PANDOC_COMMAND_PDF="  $PANDOC_COMMAND --output=$BUILD$BOOKNAME.pdf $FIRST_PAGE $CURRENT_DIR/ebook_title.txt  $CHAPTERS     --to=latex --pdf-engine=xelatex --top-level-division=chapter --number-sections -V geometry:margin=2cm --highlight-style=tango --css=$CURRENT_DIR/$STYLESHEET" # --verbose --metadata-file=metadata.yml -V documentclass=scrreprt
 
 $PANDOC_COMMAND_PDF
+
 
 #@REM OPTION 1 for PDF: Use HTML5 rendering engine (wkhtmltopdf)
 #@REM pandoc -o %BUILD%%BOOKNAME%.pdf %CURRENT_DIR%\%TITLE% %CHAPTERS% %TOC% -t html5 --standalone
