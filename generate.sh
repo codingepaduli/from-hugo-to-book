@@ -94,6 +94,8 @@ then
   # mkdir "$BUILD"
 fi
 
+mkdir -p $BUILD
+
 cd $CONTENT_DIR
 
 echo "Generating ebook"

@@ -110,6 +110,8 @@ fi
 
 cd $CONTENT_DIR
 
+mkdir -p $BUILD
+
 echo "Generating pdf"
 PANDOC_COMMAND_PDF="  $PANDOC_COMMAND --output=$BUILD$BOOKNAME.pdf $FIRST_PAGE $CURRENT_DIR/ebook_title.txt  $CHAPTERS     --to=latex --pdf-engine=xelatex --top-level-division=chapter --number-sections -V geometry:margin=2cm -V book --highlight-style=tango --css=$CURRENT_DIR/$STYLESHEET" # --verbose --metadata-file=metadata.yml -V documentclass=scrreprt
 
