@@ -2,6 +2,10 @@
 
 Elenco di ebook da creare a partire dagli articoli elencati
 
+For each post, set the weight variable in the Hugo Frontmatter following the rules below:
+    HTML: 10000 + 60 * x
+    JS: 10000 + 60 * x + 10
+    P5JS: 10000 % 60 * x + 20
 '
 
 BOOKNAME_JAVASCRIPT="Appunti-di-laboratorio-di-informatica-su-javascript"
@@ -15,6 +19,7 @@ CHAPTERS_JAVASCRIPT="
         $CONTENT_DIR/content/coding/web/javascript/interazioneHtml.md
         $CONTENT_DIR/content/coding/web/javascript/selettoriCSS.md
         $CONTENT_DIR/content/coding/web/javascript/DOM.md
+        $CURRENT_DIR/title.md
         "
 
 : ' da verificare
@@ -31,6 +36,7 @@ CHAPTERS_HTML="
         $CONTENT_DIR/content/coding/web/html/validazione.md
         $CONTENT_DIR/content/coding/web/html/codificaUnicode.md
         $CONTENT_DIR/content/coding/web/html/Accessibilita.md
+        $CURRENT_DIR/title.md
         "
 
 BOOKNAME_SISTEMI="Appunti-di-laboratorio-sistemi-e-reti"
@@ -53,5 +59,7 @@ CHAPTERS_P5_JS="
         $CONTENT_DIR/content/coding/web/p5js/intro.md
         $CONTENT_DIR/content/coding/web/p5js/graphicsPrimitives.md
         $CONTENT_DIR/content/coding/web/p5js/colorsAndStyles.md
+        $CONTENT_DIR/content/coding/web/p5js/soundsAndImages.md
         $CONTENT_DIR/content/coding/web/p5js/interactivity.md
+        $CURRENT_DIR/title.md
         "
