@@ -4,8 +4,8 @@ Elenco di ebook da creare a partire dagli articoli elencati
 
 For each post, set the weight variable in the Hugo Frontmatter following the rules below:
     HTML: 10000 + 60 * x
-    JS: 10000 + 60 * x + 10
-    P5JS: 10000 % 60 * x + 20
+    JS: 10000 + 60 * x + 20
+    P5JS: 10000 % 60 * x + 40
 '
 
 BOOKNAME_JAVASCRIPT="Appunti-di-laboratorio-di-informatica-su-javascript"
@@ -26,7 +26,7 @@ CHAPTERS_JAVASCRIPT="
         $CONTENT_DIR/content/coding/web/javascript/operatori.md
 '
 
-BOOKNAME_HTML="Appunti-di-laboratorio-di-informatica-su-html5"
+BOOKNAME_HTML="Appunti-di-laboratorio-di-tpsit-su-html5"
 CHAPTERS_HTML="
         $CONTENT_DIR/content/coding/web/html/intro.md
         $CONTENT_DIR/content/coding/web/html/etichette.md
@@ -35,9 +35,20 @@ CHAPTERS_HTML="
         $CONTENT_DIR/content/coding/web/html/metadati.md
         $CONTENT_DIR/content/coding/web/html/validazione.md
         $CONTENT_DIR/content/coding/web/html/codificaUnicode.md
+        $CONTENT_DIR/content/coding/web/html/form.md
         $CONTENT_DIR/content/coding/web/html/Accessibilita.md
         $CURRENT_DIR/title.md
         "
+
+: ' TO ADD
+        $CONTENT_DIR/content/coding/web/html/intro_exe.md
+        $CONTENT_DIR/content/coding/web/html/etichette_exe.md
+        $CONTENT_DIR/content/coding/web/html/tagTesto_exe.md
+        $CONTENT_DIR/content/coding/web/html/tagAttributes_exe.md
+        $CONTENT_DIR/content/coding/web/html/form_exe.md
+        $CONTENT_DIR/content/coding/web/html/immagini.md
+        $CONTENT_DIR/content/coding/web/html/tags04.md
+'
 
 BOOKNAME_SISTEMI="Appunti-di-laboratorio-sistemi-e-reti"
 CHAPTERS_SISTEMI="
@@ -52,6 +63,7 @@ CHAPTERS_SISTEMI="
         $CONTENT_DIR/content/coding/shell/PowerShell/PrimiScript.md
         $CONTENT_DIR/content/coding/shell/PowerShell/CmdLet-Filesystem-Path.md
         $CONTENT_DIR/content/coding/shell/PowerShell/CmdLet-Filesystem-FileCartelle.md
+        $CURRENT_DIR/title.md
         "
 
 BOOKNAME_P5_JS="Appunti-di-laboratorio-di-informatica-su-p5-js"
