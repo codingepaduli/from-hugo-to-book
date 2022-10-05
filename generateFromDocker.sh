@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Generate e-book from docker image dalibo/pandocker:stable, running the command:
-# docker container run --rm -it -u $(id -u ${USER}):$(id -g ${USER}) --name pandoc -v "$PWD":/usr/src/myapp -w /usr/src/myapp dalibo/pandocker:stable --filter pandoc-crossref
+# docker container run --rm -it -u $(id -u ${USER}):$(id -g ${USER}) --name pandoc -v "$PWD":/usr/src/myapp -w /usr/src/myapp dalibo/pandocker:latest-buster-full --filter pandoc-crossref
 
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
