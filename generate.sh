@@ -29,7 +29,7 @@ IMAGE_PREPROCESS_FILTER_EBOOK="replace_image_source.lua"
 PAGEBREAK_PREPROCESS_FILTER="pagebreak.lua"
 
 # Common pandoc command for all formats
-PANDOC_COMMAND="pandoc --standalone --from=markdown+yaml_metadata_block --toc --toc-depth=3 --lua-filter=$CURRENT_DIR/$IMAGE_PREPROCESS_FILTER_EBOOK --lua-filter=$CURRENT_DIR/$PAGEBREAK_PREPROCESS_FILTER --resource-path=$RESOURCE_DIR "  # --fail-if-warnings --top-level-division=section
+PANDOC_COMMAND="/usr/bin/pandoc --standalone --from=markdown+yaml_metadata_block --toc --toc-depth=3 --lua-filter=$CURRENT_DIR/$IMAGE_PREPROCESS_FILTER_EBOOK --lua-filter=$CURRENT_DIR/$PAGEBREAK_PREPROCESS_FILTER --resource-path=$RESOURCE_DIR "  # --fail-if-warnings --top-level-division=section
 
 
 if [ -d $BUILD ]
@@ -48,7 +48,7 @@ for ((i=0; i<3; i++))
 do
 
     echo -ne "Generating pdf ${books[${i},0]} \n"
-    PANDOC_COMMAND_PDF="  $PANDOC_COMMAND --output=$BUILD${books[${i},0]}.pdf $FIRST_PAGE $CURRENT_DIR/ebook_title.txt  ${books[${i},1]}     --to=latex --pdf-engine=xelatex --top-level-division=chapter --number-sections -V geometry:margin=2cm --highlight-style=tango --css=$CURRENT_DIR/$STYLESHEET" # --verbose --metadata-file=metadata.yml -V documentclass=scrreprt
+    PANDOC_COMMAND_PDF="  $PANDOC_COMMAND --output=$BUILD${books[${i},0]}.pdf $FIRST_PAGE $CURRENT_DIR/ebook_title.txt  ${books[${i},1]}     --to=latex --pdf-engine=xelatex --top-level-division=chapter --number-sections -V geometry:margin=2cm --highlight-style=tango --css=$CURRENT_DIR/$STYLESHEET" # --verbose --metadata-file=metadata.yml -V documentclass=scrreprt -V mainfont:NotoSans-Regular
 
     $PANDOC_COMMAND_PDF
 
