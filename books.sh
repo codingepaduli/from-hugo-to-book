@@ -31,7 +31,7 @@ CHAPTERS_HTML="
         $CONTENT_DIR/content/coding/web/html/intro.md
         $CONTENT_DIR/content/coding/web/html/etichette.md
         $CONTENT_DIR/content/coding/web/html/tagTesto.md
-        $CONTENT_DIR/content/coding/web/html/tagAttributes.md
+        $CONTENT_DIR/content/coding/web/html/immagini.md
         $CONTENT_DIR/content/coding/web/html/metadati.md
         $CONTENT_DIR/content/coding/web/html/validazione.md
         $CONTENT_DIR/content/coding/web/html/codificaUnicode.md
@@ -44,9 +44,7 @@ CHAPTERS_HTML="
         $CONTENT_DIR/content/coding/web/html/intro_exe.md
         $CONTENT_DIR/content/coding/web/html/etichette_exe.md
         $CONTENT_DIR/content/coding/web/html/tagTesto_exe.md
-        $CONTENT_DIR/content/coding/web/html/tagAttributes_exe.md
         $CONTENT_DIR/content/coding/web/html/form_exe.md
-        $CONTENT_DIR/content/coding/web/html/immagini.md
         $CONTENT_DIR/content/coding/web/html/tags04.md
 '
 
