@@ -23,7 +23,9 @@ METADATA="metadata.xml"
 
 STYLESHEET="stylesheet.css"
 
-FIRST_PAGE="$CURRENT_DIR/cover.md"
+PDF_FIRST_PAGE=""  #"$CURRENT_DIR/cover.md"
+EPUB_COVER="$CURRENT_DIR/cover_ebook_2.jpg"
+EPUB_METADATA="$CURRENT_DIR/epub_metadata.xml"
 
 IMAGE_PREPROCESS_FILTER_EBOOK="replace_image_source.lua"
 PAGEBREAK_PREPROCESS_FILTER="pagebreak.lua"
@@ -48,12 +50,12 @@ for ((i=0; i<3; i++))
 do
 
     echo -ne "Generating pdf ${books[${i},0]} \n"
-    PANDOC_COMMAND_PDF="  $PANDOC_COMMAND --output=$BUILD${books[${i},0]}.pdf $FIRST_PAGE $CURRENT_DIR/ebook_title.txt  ${books[${i},1]}     --to=latex --pdf-engine=xelatex --top-level-division=chapter --number-sections -V geometry:margin=2cm --highlight-style=tango --css=$CURRENT_DIR/$STYLESHEET" # --verbose --metadata-file=metadata.yml -V documentclass=scrreprt -V mainfont:NotoSans-Regular
+    PANDOC_COMMAND_PDF="  $PANDOC_COMMAND --output=$BUILD${books[${i},0]}.pdf $PDF_FIRST_PAGE $CURRENT_DIR/ebook_title.txt  ${books[${i},1]}     --to=latex --pdf-engine=xelatex --top-level-division=chapter --number-sections -V geometry:margin=2cm --highlight-style=tango --css=$CURRENT_DIR/$STYLESHEET" # --verbose --metadata-file=metadata.yml -V documentclass=scrreprt -V mainfont:NotoSans-Regular
 
     $PANDOC_COMMAND_PDF
 
     echo -ne "Generating ebook ${books[${i},0]} \n"
-    PANDOC_COMMAND_EBOOK="$PANDOC_COMMAND --output=$BUILD${books[${i},0]}.epub $CURRENT_DIR/ebook_title.txt ${books[${i},1]} --epub-chapter-level=1 --epub-metadata=$CURRENT_DIR/epub_metadata.xml --epub-cover-image=$CURRENT_DIR/cover_ebook.jpg --css=$CURRENT_DIR/$STYLESHEET --listings" #
+    PANDOC_COMMAND_EBOOK="$PANDOC_COMMAND --output=$BUILD${books[${i},0]}.epub $CURRENT_DIR/ebook_title.txt ${books[${i},1]} --epub-chapter-level=1 --epub-metadata=$EPUB_METADATA --epub-cover-image=$EPUB_COVER --css=$CURRENT_DIR/$STYLESHEET --listings" #
 
     $PANDOC_COMMAND_EBOOK
 
