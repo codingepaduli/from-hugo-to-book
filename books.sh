@@ -72,8 +72,16 @@ CHAPTERS_P5_JS="
         $CONTENT_DIR/content/coding/web/p5js/graphicsPrimitives.md
         $CONTENT_DIR/content/coding/web/p5js/graphicsPrimitives_exe.md
         $CONTENT_DIR/content/coding/web/p5js/colorsAndStyles.md
+        $CONTENT_DIR/content/coding/web/p5js/colorsAndStyles_exe.md
         $CONTENT_DIR/content/coding/web/p5js/variables.md
         $CONTENT_DIR/content/coding/web/p5js/soundsAndImages.md
+        $CONTENT_DIR/content/coding/web/p5js/progettoFattoriaAnimali_exe.md
+        $CONTENT_DIR/content/coding/web/p5js/progettoIndovinaChi_exe.md
+        $CONTENT_DIR/content/coding/web/p5js/progettoMemory_exe.md
+        $CONTENT_DIR/content/coding/web/p5js/progettoAcchiappapalline_exe.md
+        $CONTENT_DIR/content/coding/web/p5js/progettoPong_exe.md
+        $CONTENT_DIR/content/coding/web/p5js/progettoArknoid_exe.md
+        $CONTENT_DIR/content/coding/web/p5js/progettoSnake_exe.md
         "
 
 : ' TO ADD
