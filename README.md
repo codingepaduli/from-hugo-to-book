@@ -15,8 +15,8 @@ The steps are the following:
 - in the top right side, choose the output format "PDF";
 - choose the conversion options, like in the following screenshots.
 
-![Calibre pdf conversion - page options](https://github.com/codingepaduli/from-hugo-to-book/blob/master/docs/calibre_options_page.png)
-![Calibre pdf conversion - pdf options](https://github.com/codingepaduli/from-hugo-to-book/blob/master/docs/calibre_options_pdf_output.png)
+![Calibre pdf conversion - page options](./docs/calibre_options_page.png)
+![Calibre pdf conversion - pdf options](./docs/calibre_options_pdf_output.png)
 
 ## License
 
