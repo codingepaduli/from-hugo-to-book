@@ -29,9 +29,8 @@ CHAPTERS_JAVASCRIPT="
         $CONTENT_DIR/content/coding/web/javascript/operatori.md
 '
 
-BOOKNAME_HTML="Appunti-di-laboratorio-di-tpsit-su-html5"
+BOOKNAME_HTML="Appunti-di-laboratorio-di-tpsit-su-html5-e-css"
 CHAPTERS_HTML="
-        $CONTENT_DIR/content/coding/web/html/intro.md
         $CONTENT_DIR/content/coding/web/html/etichette.md
         $CONTENT_DIR/content/coding/web/html/tagTesto.md
         $CONTENT_DIR/content/coding/web/html/immagini.md
@@ -40,10 +39,10 @@ CHAPTERS_HTML="
         $CONTENT_DIR/content/coding/web/html/codificaUnicode.md
         $CONTENT_DIR/content/coding/web/html/form.md
         $CONTENT_DIR/content/coding/web/html/Accessibilita.md
+        $CONTENT_DIR/content/coding/web/css/intro.md
         "
 
 : ' TO ADD
-        $CONTENT_DIR/content/coding/web/html/intro_exe.md
         $CONTENT_DIR/content/coding/web/html/etichette_exe.md
         $CONTENT_DIR/content/coding/web/html/tagTesto_exe.md
         $CONTENT_DIR/content/coding/web/html/form_exe.md
@@ -68,24 +67,26 @@ CHAPTERS_SISTEMI="
 BOOKNAME_P5_JS="Appunti-di-laboratorio-di-informatica-su-p5-js"
 CHAPTERS_P5_JS="
         $CONTENT_DIR/content/coding/web/p5js/intro.md
-        $CONTENT_DIR/content/coding/web/p5js/intro_exe.md
         $CONTENT_DIR/content/coding/web/p5js/graphicsPrimitives.md
         $CONTENT_DIR/content/coding/web/p5js/graphicsPrimitives_exe.md
         $CONTENT_DIR/content/coding/web/p5js/colorsAndStyles.md
         $CONTENT_DIR/content/coding/web/p5js/colorsAndStyles_exe.md
         $CONTENT_DIR/content/coding/web/p5js/variables.md
+        $CONTENT_DIR/content/coding/web/p5js/progettoOrologio_exe.md
+        $CONTENT_DIR/content/coding/web/p5js/progettoSistemaSolare_exe.md
         $CONTENT_DIR/content/coding/web/p5js/soundsAndImages.md
-        $CONTENT_DIR/content/coding/web/p5js/progettoFattoriaAnimali_exe.md
-        $CONTENT_DIR/content/coding/web/p5js/progettoIndovinaChi_exe.md
-        $CONTENT_DIR/content/coding/web/p5js/progettoMemory_exe.md
+        $CONTENT_DIR/content/coding/web/p5js/progettoParcoZoologico_exe.md
+        $CONTENT_DIR/content/coding/web/p5js/progettoMorraCinese_exe.md
         $CONTENT_DIR/content/coding/web/p5js/progettoAcchiappapalline_exe.md
-        $CONTENT_DIR/content/coding/web/p5js/progettoPong_exe.md
-        $CONTENT_DIR/content/coding/web/p5js/progettoArknoid_exe.md
-        $CONTENT_DIR/content/coding/web/p5js/progettoSnake_exe.md
+        $CONTENT_DIR/content/coding/web/p5js/progettoComplemento1_exe.md
         "
 
 : ' TO ADD
     $CONTENT_DIR/content/coding/web/p5js/intro_exe.md
-    $CONTENT_DIR/content/coding/web/p5js/graphicsPrimitives_exe.md
     $CONTENT_DIR/content/coding/web/p5js/interactivity.md
+    $CONTENT_DIR/content/coding/web/p5js/progettoIndovinaChi_exe.md
+    $CONTENT_DIR/content/coding/web/p5js/progettoMemory_exe.md
+    $CONTENT_DIR/content/coding/web/p5js/progettoPong_exe.md
+    $CONTENT_DIR/content/coding/web/p5js/progettoArknoid_exe.md
+    $CONTENT_DIR/content/coding/web/p5js/progettoSnake_exe.md
 '
