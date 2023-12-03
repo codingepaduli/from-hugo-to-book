@@ -1,7 +1,12 @@
 #!/bin/bash
+
+# Generate e-book from docker image dalibo/pandocker:stable, running the command:
+# docker container run --rm -it -u $(id -u ${USER}):$(id -g ${USER}) --name pandoc -v "$PWD":/usr/src/myapp -w /usr/src/myapp dalibo/pandocker:latest-buster-full --filter pandoc-crossref
+
+
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-ROOT_DIR="$( dirname $CURRENT_DIR )" # $CURRENT_DIR
+ROOT_DIR="$( dirname "$CURRENT_DIR" )" # $CURRENT_DIR
 SCRIPT_DIR="$ROOT_DIR/from-hugo-to-book"
 BUILD="$SCRIPT_DIR/build/"
 CONTENT_DIR="$ROOT_DIR/codingepaduli" # NO ending slash "/"
@@ -24,8 +29,6 @@ books[1,1]=$CHAPTERS_JAVASCRIPT
 books[2,0]=$BOOKNAME_P5_JS
 books[2,1]=$CHAPTERS_P5_JS
 
-METADATA="$SCRIPT_DIR/metadata.xml"
-
 STYLESHEET="$SCRIPT_DIR/stylesheet.css"
 
 PDF_FIRST_PAGE=""  #"$SCRIPT_DIR/cover.md"
@@ -38,7 +41,7 @@ PAGEBREAK_PREPROCESS_FILTER="$SCRIPT_DIR/pagebreak.lua"
 # Common pandoc command for all formats
 PANDOC_COMMAND="pandoc --standalone --from=markdown+yaml_metadata_block --toc --toc-depth=3 --lua-filter=$IMAGE_PREPROCESS_FILTER_EBOOK --lua-filter=$PAGEBREAK_PREPROCESS_FILTER --resource-path=$RESOURCE_DIR "  # --fail-if-warnings --top-level-division=section
 
-if [ -d $BUILD ]
+if [ -d "$BUILD" ]
 then
   echo "";
   # echo "Cancella prima la cartella: $BUILD"
@@ -46,9 +49,9 @@ then
   # mkdir "$BUILD"
 fi
 
-mkdir -p $BUILD
+mkdir -p "$BUILD"
 
-cd $ROOT_DIR
+cd "$ROOT_DIR"
 
 for ((i=0; i<3; i++))
 do
@@ -59,7 +62,7 @@ do
     $PANDOC_COMMAND_PDF
 
     echo -ne "Generating ebook ${books[${i},0]} \n"
-    PANDOC_COMMAND_EBOOK="$PANDOC_COMMAND --output=$BUILD${books[${i},0]}.epub $SCRIPT_DIR/ebook_title.txt ${books[${i},1]} --epub-chapter-level=1 --epub-metadata=$EPUB_METADATA --epub-cover-image=$EPUB_COVER --css=$STYLESHEET --listings" #
+    PANDOC_COMMAND_EBOOK="$PANDOC_COMMAND --output=$BUILD${books[${i},0]}.epub $SCRIPT_DIR/ebook_title.txt ${books[${i},1]} $SCRIPT_DIR/title.md --epub-chapter-level=1 --epub-metadata=$EPUB_METADATA --epub-cover-image=$EPUB_COVER --css=$STYLESHEET --listings" #
 
     $PANDOC_COMMAND_EBOOK
 
@@ -69,3 +72,4 @@ do
 
     $PANDOC_COMMAND_ODT
 done
+

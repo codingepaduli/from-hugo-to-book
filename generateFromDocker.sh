@@ -5,16 +5,21 @@
 
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-echo "Current dir: $CURRENT_DIR"
 
-BUILD="$CURRENT_DIR/build/"
-CONTENT_DIR="$CURRENT_DIR/../codingepaduli" # NO ending slash "/"
-RESOURCE_DIR="$CURRENT_DIR/../codingepaduli/static"
+ROOT_DIR="$( dirname "$CURRENT_DIR" )" # $CURRENT_DIR
+SCRIPT_DIR="$ROOT_DIR/from-hugo-to-book"
+BUILD="$SCRIPT_DIR/build/"
+CONTENT_DIR="$ROOT_DIR/codingepaduli" # NO ending slash "/"
+RESOURCE_DIR="$ROOT_DIR/codingepaduli/static"
+
+echo "Current dir: $CURRENT_DIR"
+echo "Root dir: $ROOT_DIR"
+echo "Script dir: $SCRIPT_DIR"
 echo "Build dir: $BUILD"
 echo "Content dir: $CONTENT_DIR"
 echo "Resource dir: $RESOURCE_DIR"
 
-source books.sh
+source "$SCRIPT_DIR/books.sh"
 
 declare -A books
 books[0,0]=$BOOKNAME_HTML
@@ -24,21 +29,19 @@ books[1,1]=$CHAPTERS_JAVASCRIPT
 books[2,0]=$BOOKNAME_P5_JS
 books[2,1]=$CHAPTERS_P5_JS
 
-METADATA="metadata.xml"
+STYLESHEET="$SCRIPT_DIR/stylesheet.css"
 
-STYLESHEET="stylesheet.css"
+PDF_FIRST_PAGE=""  #"$SCRIPT_DIR/cover.md"
+EPUB_COVER="$SCRIPT_DIR/cover_ebook_2.jpg"
+EPUB_METADATA="$SCRIPT_DIR/epub_metadata.xml"
 
-FIRST_PAGE="$CURRENT_DIR/cover.md"
-
-IMAGE_PREPROCESS_FILTER_EBOOK="replace_image_source.lua"
-PAGEBREAK_PREPROCESS_FILTER="pagebreak.lua"
-PROMOTE_HEADERS_FILTER="promote-headers.lua"
+IMAGE_PREPROCESS_FILTER_EBOOK="$SCRIPT_DIR/replace_image_source.lua"
+PAGEBREAK_PREPROCESS_FILTER="$SCRIPT_DIR/pagebreak.lua"
 
 # Common pandoc command for all formats
-PANDOC_COMMAND="pandoc --standalone --from=markdown+yaml_metadata_block --toc --toc-depth=3 --lua-filter=$CURRENT_DIR/$IMAGE_PREPROCESS_FILTER_EBOOK --lua-filter=$CURRENT_DIR/$PAGEBREAK_PREPROCESS_FILTER --resource-path=$RESOURCE_DIR "  # --fail-if-warnings --top-level-division=section
+PANDOC_COMMAND="pandoc --standalone --from=markdown+yaml_metadata_block --toc --toc-depth=3 --lua-filter=$IMAGE_PREPROCESS_FILTER_EBOOK --lua-filter=$PAGEBREAK_PREPROCESS_FILTER --resource-path=$RESOURCE_DIR "  # --fail-if-warnings --top-level-division=section
 
-
-if [ -d $BUILD ]
+if [ -d "$BUILD" ]
 then
   echo "";
   # echo "Cancella prima la cartella: $BUILD"
@@ -46,26 +49,26 @@ then
   # mkdir "$BUILD"
 fi
 
-mkdir -p $BUILD
+mkdir -p "$BUILD"
 
-cd $CONTENT_DIR
+cd "$ROOT_DIR"
 
 for ((i=0; i<3; i++))
 do
 
-    echo -ne "Generating pdf ${books[${i},0]} \n"
-    PANDOC_COMMAND_PDF="  $PANDOC_COMMAND --output=$BUILD$BOOKNAME.pdf $FIRST_PAGE $CURRENT_DIR/ebook_title.txt  ${books[${i},1]}     --to=latex --pdf-engine=xelatex --top-level-division=chapter --number-sections -V geometry:margin=2cm --highlight-style=tango --css=$CURRENT_DIR/$STYLESHEET" # --verbose --metadata-file=metadata.yml -V documentclass=scrreprt
+    echo -ne "Generating pdf ${books[${i},0]}\n"
+    PANDOC_COMMAND_PDF="  $PANDOC_COMMAND --output=$BUILD${books[${i},0]}.pdf $PDF_FIRST_PAGE $SCRIPT_DIR/ebook_title.txt  ${books[${i},1]} $SCRIPT_DIR/title.md    --to=latex --pdf-engine=xelatex --top-level-division=chapter --number-sections -V geometry:margin=2cm --highlight-style=tango --css=$STYLESHEET" # --verbose --metadata-file=metadata.yml -V documentclass=scrreprt -V mainfont:NotoSans-Regular
 
     $PANDOC_COMMAND_PDF
 
     echo -ne "Generating ebook ${books[${i},0]} \n"
-    PANDOC_COMMAND_EBOOK="$PANDOC_COMMAND --output=$BUILD$BOOKNAME.epub $CURRENT_DIR/ebook_title.txt ${books[${i},1]} --epub-chapter-level=1 --epub-metadata=$CURRENT_DIR/epub_metadata.xml --epub-cover-image=$CURRENT_DIR/cover_ebook.jpg --css=$CURRENT_DIR/$STYLESHEET --listings" #
+    PANDOC_COMMAND_EBOOK="$PANDOC_COMMAND --output=$BUILD${books[${i},0]}.epub $SCRIPT_DIR/ebook_title.txt ${books[${i},1]} $SCRIPT_DIR/title.md --epub-chapter-level=1 --epub-metadata=$EPUB_METADATA --epub-cover-image=$EPUB_COVER --css=$STYLESHEET --listings" #
 
     $PANDOC_COMMAND_EBOOK
 
     # Generating open document
     echo -ne "Generating open document ${books[${i},0]} \n"
-    PANDOC_COMMAND_ODT="$PANDOC_COMMAND --output=$BUILD$BOOKNAME.odt ${books[${i},1]}  --to=odt"
+    PANDOC_COMMAND_ODT="$PANDOC_COMMAND --output=$BUILD${books[${i},0]}.odt ${books[${i},1]}  --to=odt"
 
     $PANDOC_COMMAND_ODT
 done
