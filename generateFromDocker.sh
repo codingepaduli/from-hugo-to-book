@@ -20,6 +20,7 @@ echo "Content dir: $CONTENT_DIR"
 echo "Resource dir: $RESOURCE_DIR"
 
 source "$SCRIPT_DIR/books.sh"
+# source "$SCRIPT_DIR/books_with_exe.sh"
 
 declare -A books
 books[0,0]=$BOOKNAME_HTML
