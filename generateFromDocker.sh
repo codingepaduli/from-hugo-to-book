@@ -61,16 +61,22 @@ do
     PANDOC_COMMAND_PDF="  $PANDOC_COMMAND --output=$BUILD${books[${i},0]}.pdf $PDF_FIRST_PAGE $SCRIPT_DIR/ebook_title.txt  ${books[${i},1]} $SCRIPT_DIR/title.md    --to=latex --pdf-engine=xelatex --top-level-division=chapter --number-sections -V geometry:margin=2cm --highlight-style=tango --css=$STYLESHEET" # --verbose --metadata-file=metadata.yml -V documentclass=scrreprt -V mainfont:NotoSans-Regular
 
     $PANDOC_COMMAND_PDF
+    
+    notify-send "PDF Generated" "PDF generated: ${books[${i},1]}.pdf"
 
     echo -ne "Generating ebook ${books[${i},0]} \n"
     PANDOC_COMMAND_EBOOK="$PANDOC_COMMAND --output=$BUILD${books[${i},0]}.epub $SCRIPT_DIR/ebook_title.txt ${books[${i},1]} $SCRIPT_DIR/title.md --epub-chapter-level=1 --epub-metadata=$EPUB_METADATA --epub-cover-image=$EPUB_COVER --css=$STYLESHEET --listings" #
 
     $PANDOC_COMMAND_EBOOK
+    
+    notify-send "ebook Generated" "ebook generated: ${books[${i},1]}.epub"
 
     # Generating open document
     echo -ne "Generating open document ${books[${i},0]} \n"
     PANDOC_COMMAND_ODT="$PANDOC_COMMAND --output=$BUILD${books[${i},0]}.odt ${books[${i},1]}  --to=odt"
 
     $PANDOC_COMMAND_ODT
+    
+    notify-send "ODT Generated" "Open document generated: ${books[${i},1]}.odt"
 done
 
