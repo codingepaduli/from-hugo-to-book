@@ -16,8 +16,6 @@ BOOKNAME_JAVASCRIPT="Appunti-di-laboratorio-di-informatica-su-javascript"
 CHAPTERS_JAVASCRIPT="
         $CONTENT_DIR/content/coding/web/javascript/conversioni.md
         $CONTENT_DIR/content/coding/web/javascript/istruzioni_condizionali_iterative.md
-        $CONTENT_DIR/content/coding/web/javascript/funzioni.md
-        $CONTENT_DIR/content/coding/web/javascript/interazioneHtml.md
         $CONTENT_DIR/content/coding/web/javascript/selettoriCSS.md
         $CONTENT_DIR/content/coding/web/javascript/DOM.md
         "
@@ -36,6 +34,7 @@ CHAPTERS_HTML="
         $CONTENT_DIR/content/coding/web/html/form_exe.md
         $CONTENT_DIR/content/coding/web/html/Accessibilita.md
         $CONTENT_DIR/content/coding/web/css/intro.md
+        $CONTENT_DIR/content/coding/web/css/selettoriCSS.md
         $CONTENT_DIR/content/coding/web/javascript/interazioneHtml.md
         "
 
@@ -73,6 +72,7 @@ CHAPTERS_P5_JS="
         $CONTENT_DIR/content/coding/web/p5js/progettoAcchiappapalline_exe.md
         $CONTENT_DIR/content/coding/web/p5js/progettoComplemento1_exe.md
         $CONTENT_DIR/content/coding/web/p5js/progettoIndovinaChi_exe.md
+        $CONTENT_DIR/content/coding/web/javascript/funzioni.md
         $CONTENT_DIR/content/coding/web/p5js/progettoMemory_exe.md
         $CONTENT_DIR/content/coding/web/p5js/progettoPong_exe.md
         $CONTENT_DIR/content/coding/web/p5js/progettoArknoid_exe.md
