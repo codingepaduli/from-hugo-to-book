@@ -35,7 +35,6 @@ CHAPTERS_HTML="
         $CONTENT_DIR/content/coding/web/html/Accessibilita.md
         $CONTENT_DIR/content/coding/web/css/intro.md
         $CONTENT_DIR/content/coding/web/css/selettoriCSS.md
-        $CONTENT_DIR/content/coding/web/javascript/interazioneHtml.md
         "
 
 BOOKNAME_SISTEMI="Appunti-di-laboratorio-sistemi-e-reti"
@@ -55,6 +54,19 @@ CHAPTERS_SISTEMI="
 
 BOOKNAME_P5_JS="Appunti-di-laboratorio-di-informatica-su-p5-js"
 CHAPTERS_P5_JS="
+        $CONTENT_DIR/content/coding/Storia.md
+        $CONTENT_DIR/content/coding/web/html/etichette.md
+        $CONTENT_DIR/content/coding/web/html/tagTesto.md
+        $CONTENT_DIR/content/coding/web/html/tagTesto_exe_step_by_step.md
+        $CONTENT_DIR/content/coding/web/html/codificaUnicode.md
+        $CONTENT_DIR/content/coding/web/html/codificaUnicode_appendice_combinazioni.md
+        $CONTENT_DIR/content/coding/web/html/codificaUnicode_exe_alfabetoGreco.md
+        $CONTENT_DIR/content/coding/web/html/codificaUnicode_exe_sistemaNumericoEgizio.md
+        $CONTENT_DIR/content/coding/web/html/codificaUnicode_exe_sistemiNumerici.md
+        $CONTENT_DIR/content/coding/web/html/codificaUnicode_exe_conversioniNumeriche.md
+        $CONTENT_DIR/content/coding/web/html/metadati.md
+        $CONTENT_DIR/content/coding/web/html/validazione.md
+        $CONTENT_DIR/content/coding/web/html/Accessibilita.md
         $CONTENT_DIR/content/coding/web/javascript/intro.md
         $CONTENT_DIR/content/coding/web/p5js/intro.md
         $CONTENT_DIR/content/coding/web/p5js/intro_exe.md
@@ -67,6 +79,7 @@ CHAPTERS_P5_JS="
         $CONTENT_DIR/content/coding/web/p5js/progettoOrologio_exe.md
         $CONTENT_DIR/content/coding/web/p5js/progettoSistemaSolare_exe.md
         $CONTENT_DIR/content/coding/web/p5js/soundsAndImages.md
+        $CONTENT_DIR/content/coding/web/p5js/interactivity.md
         $CONTENT_DIR/content/coding/web/p5js/progettoParcoZoologico_exe.md
         $CONTENT_DIR/content/coding/web/p5js/progettoMorraCinese_exe.md
         $CONTENT_DIR/content/coding/web/p5js/progettoAcchiappapalline_exe.md

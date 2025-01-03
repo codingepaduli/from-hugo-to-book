@@ -19,8 +19,8 @@ echo "Build dir: $BUILD"
 echo "Content dir: $CONTENT_DIR"
 echo "Resource dir: $RESOURCE_DIR"
 
-source "$SCRIPT_DIR/books.sh"
-# source "$SCRIPT_DIR/books_with_exe.sh"
+# source "$SCRIPT_DIR/books.sh"
+source "$SCRIPT_DIR/books_with_exe.sh"
 
 declare -A books
 books[0,0]=$BOOKNAME_HTML
@@ -58,18 +58,17 @@ for ((i=0; i<3; i++))
 do
 
     echo -ne "Generating pdf ${books[${i},0]}\n"
-    PANDOC_COMMAND_PDF="  $PANDOC_COMMAND --output=$BUILD${books[${i},0]}.pdf $PDF_FIRST_PAGE $SCRIPT_DIR/ebook_title.txt  ${books[${i},1]} $SCRIPT_DIR/title.md    --to=latex --pdf-engine=xelatex --top-level-division=chapter --number-sections -V geometry:margin=2cm --highlight-style=tango --css=$STYLESHEET" # --verbose --metadata-file=metadata.yml -V documentclass=scrreprt -V mainfont:NotoSans-Regular
-
+    PANDOC_COMMAND_PDF="  $PANDOC_COMMAND --output=$BUILD${books[${i},0]}.pdf $PDF_FIRST_PAGE $SCRIPT_DIR/ebook_title.txt  ${books[${i},1]} $SCRIPT_DIR/title.md    --to=latex --pdf-engine=xelatex --top-level-division=chapter --number-sections -V geometry:margin=2cm --highlight-style=tango --css=$STYLESHEET  "  # -V mainfont=Arial -V monofont=Arial --verbose --metadata-file=metadata.yml -V documentclass=scrreprt 
     $PANDOC_COMMAND_PDF
     
-    notify-send "PDF Generated" "PDF generated: ${books[${i},1]}.pdf"
+    notify-send "PDF Generated" "PDF generated: ${books[${i},0]}.pdf"
 
     echo -ne "Generating ebook ${books[${i},0]} \n"
-    PANDOC_COMMAND_EBOOK="$PANDOC_COMMAND --output=$BUILD${books[${i},0]}.epub $SCRIPT_DIR/ebook_title.txt ${books[${i},1]} $SCRIPT_DIR/title.md --epub-chapter-level=1 --epub-metadata=$EPUB_METADATA --epub-cover-image=$EPUB_COVER --css=$STYLESHEET --listings" #
+    PANDOC_COMMAND_EBOOK="$PANDOC_COMMAND --output=$BUILD${books[${i},0]}.epub $SCRIPT_DIR/ebook_title.txt ${books[${i},1]} $SCRIPT_DIR/title.md --split-level=1 --epub-metadata=$EPUB_METADATA --epub-cover-image=$EPUB_COVER --css=$STYLESHEET --listings" #
 
     $PANDOC_COMMAND_EBOOK
     
-    notify-send "ebook Generated" "ebook generated: ${books[${i},1]}.epub"
+    notify-send "ebook Generated" "ebook generated: ${books[${i},0]}.epub"
 
     # Generating open document
     echo -ne "Generating open document ${books[${i},0]} \n"
@@ -77,6 +76,6 @@ do
 
     $PANDOC_COMMAND_ODT
     
-    notify-send "ODT Generated" "Open document generated: ${books[${i},1]}.odt"
+    notify-send "ODT Generated" "Open document generated: ${books[${i},0]}.odt"
 done
 

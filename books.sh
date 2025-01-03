@@ -51,6 +51,14 @@ CHAPTERS_SISTEMI="
 
 BOOKNAME_P5_JS="Appunti-di-laboratorio-di-informatica-su-p5-js"
 CHAPTERS_P5_JS="
+        $CONTENT_DIR/content/coding/Storia.md
+        $CONTENT_DIR/content/coding/web/html/etichette.md
+        $CONTENT_DIR/content/coding/web/html/tagTesto.md
+        $CONTENT_DIR/content/coding/web/html/codificaUnicode.md
+        $CONTENT_DIR/content/coding/web/html/codificaUnicode_appendice_combinazioni.md
+        $CONTENT_DIR/content/coding/web/html/metadati.md
+        $CONTENT_DIR/content/coding/web/html/validazione.md
+        $CONTENT_DIR/content/coding/web/html/Accessibilita.md
         $CONTENT_DIR/content/coding/web/javascript/intro.md
         $CONTENT_DIR/content/coding/web/p5js/intro.md
         $CONTENT_DIR/content/coding/web/p5js/graphicsPrimitives.md
